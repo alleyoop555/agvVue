@@ -5,7 +5,7 @@ const fileList = require('../api/public/filelist');
 
 /* show file list */
 folder = './data';
-router.get('/api/filelist', (req, res)=>{
+router.get('/report/filelist', (req, res)=>{
     console.log('----------');
     console.log('Get file list');
     let list = fileList(folder);
