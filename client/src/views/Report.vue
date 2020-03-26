@@ -26,8 +26,7 @@
                     console.log(err)
                 })
 
-        }
-
+        },
     }
 </script>
 
