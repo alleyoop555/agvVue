@@ -5,9 +5,9 @@ const fileList = require('../api/common/filelist');
 const agvReport = require('../api/Report/fileshow');
 const deleteFile = require('../api/common/deletefile');
 
-/* get file list */
+/* get folder list */
 folder = './data';
-router.get('/report/filelist', (req, res)=>{
+router.get('/report/list_file', (req, res)=>{
     console.log('----------');
     console.log('Get file list');
     let list = fileList(folder);
@@ -15,9 +15,9 @@ router.get('/report/filelist', (req, res)=>{
 });
 
 /* get file figure */
-router.get('/report/fileshow/:file', (req, res)=> {
+router.get('/report/show_file/:file', (req, res)=> {
     console.log('----------');
-    console.log('Show file: ' + req.params.file);
+    console.log(`Show file: ${req.params.file}`);
     const file = `./data/${req.params.file}`;
     const report = new agvReport(file);
     report.getAll(()=> {res.json(report.figure);})

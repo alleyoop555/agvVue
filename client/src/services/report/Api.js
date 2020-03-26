@@ -1,11 +1,11 @@
 import apiRoute from "../ApiRoute";
 
 export default {
-    fileList() {
-        return apiRoute().get('api/report/filelist')
+    listFolder() {
+        return apiRoute().get('api/report/list_file')
     },
-    fileShow(file) {
-        return apiRoute().get(`api/report/fileshow/${file}`)
+    showFile(file) {
+        return apiRoute().get(`api/report/show_file/${file}`)
     },
     deleteFile(file) {
         return apiRoute().delete(`api/report/delete_file/${file}`)
