@@ -1,8 +1,9 @@
 <template>
     <div class="container">
+        <br>
         <div class="align-items-center">
             <form>
-                <h2>File List</h2>
+                <h2>Select File</h2>
                 <label>
                     <select class="custom-select custom-select-lg mb-3" v-model="select">
                         <option v-bind:key="file" v-for="file in list">
@@ -14,7 +15,8 @@
         </div>
         <div class="container">
             <div class="align-items-center">
-                <button type="button" class="btn btn-primary" v-on:click="fileShow">Show</button>
+                <button type="button" class="btn btn-primary" @click="showFile">Show</button>
+                <button type="button" class="btn btn-primary" @click="deleteFile">Remove</button>
             </div>
         </div>
         <br>
@@ -48,7 +50,7 @@
             }
         },
         methods: {
-            fileShow() {
+            showFile() {
                 if (this.select) {
                     api.fileShow(this.select)
                         .then(res=>{
@@ -97,6 +99,15 @@
                             console.log(err)
                         })
                 }
+            },
+            deleteFile() {
+                api.deleteFile(this.select)
+                    .then(res=>{
+                        console.log(res)
+                    })
+                    .catch(err=>{
+                        console.log(err)
+                    })
             }
         }
     }
